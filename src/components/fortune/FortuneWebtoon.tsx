@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useMemo, useState, useSyncExternalStore } from "react";
 import { BrandMark } from "@/components/BrandMark";
 import { addressForGender, readConsultGender } from "@/lib/consult-session";
+import { getFortunePanelCut } from "@/lib/fortune-cuts";
 import { CharacterCutSlot } from "./CharacterCutSlot";
 import { buildSamplePanels } from "./sample-panels";
 
@@ -19,6 +20,7 @@ export function FortuneWebtoon() {
 
   const panels = useMemo(() => buildSamplePanels(gender), [gender]);
   const panel = panels[index];
+  const cut = getFortunePanelCut(index);
   const total = panels.length;
   const address = addressForGender(gender);
 
@@ -106,7 +108,7 @@ export function FortuneWebtoon() {
             </span>
           </div>
 
-          <CharacterCutSlot role={panel.focus} />
+          <CharacterCutSlot cut={cut} />
 
           <div className="flex flex-col gap-2.5">
             {panel.lines.map((line, i) => {
