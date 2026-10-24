@@ -1,2 +1,4 @@
-# Drop final webtoon hero art here as palja-unnie-hero.webp
-# Then set characterHeroAsset.enabled = true in src/lib/character-assets.ts
+# Character assets
+
+- `palja-unnie-hero.jpg` — full mobile home illustration (팔자언니 + 복냥이)
+- Wired via `src/lib/character-assets.ts` (`enabled: true`)
