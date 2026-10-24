@@ -24,15 +24,15 @@ const body = Noto_Sans_KR({
 });
 
 export const metadata: Metadata = {
-  title: "팔자언니 | 대구 MZ 무당언니",
-  description: "대구 MZ 무당언니가 봐주는 내 팔자",
+  title: "팔자언니 | 사주 × 웹툰 × AI × MBTI × 연애",
+  description: "야, 앉아봐라. 니 팔자 한번 봐줄게.",
   applicationName: "팔자언니",
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#3b1d52",
+  themeColor: "#8b1e3a",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
