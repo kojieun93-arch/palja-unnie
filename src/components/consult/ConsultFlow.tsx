@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useMemo, useState, type FormEvent, type ReactNode } from "react";
 import { BrandMark } from "@/components/BrandMark";
+import { saveConsultGender } from "@/lib/consult-session";
 import { EMPTY_FORM, type ConsultFormErrors, type ConsultFormValues } from "./types";
 import { formatBirthSummary, validateConsultForm } from "./validate";
 
@@ -106,10 +108,18 @@ function NumberField({
 }
 
 export function ConsultFlow() {
+  const router = useRouter();
   const [step, setStep] = useState<Step>("form");
   const [values, setValues] = useState<ConsultFormValues>(EMPTY_FORM);
   const [errors, setErrors] = useState<ConsultFormErrors>({});
   const [submittedOnce, setSubmittedOnce] = useState(false);
+
+  function goToFortuneSample() {
+    if (!values.gender) return;
+    // Only gender for 언니/오빠 — never birth data in URL/storage beyond this.
+    saveConsultGender(values.gender);
+    router.push("/fortune");
+  }
 
   const address = addressFor(values.gender);
 
@@ -200,6 +210,13 @@ export function ConsultFlow() {
           <div className="mt-auto flex flex-col gap-3 pt-10">
             <button
               type="button"
+              onClick={goToFortuneSample}
+              className="animate-cta-pulse w-full rounded-2xl bg-gradient-to-r from-wine-deep via-wine to-deep-purple px-4 py-3.5 text-sm font-bold text-ivory shadow-[0_14px_32px_rgba(92,20,40,0.35)] transition active:scale-[0.98]"
+            >
+              내 팔자 결과 보기 →
+            </button>
+            <button
+              type="button"
               onClick={() => setStep("form")}
               className="w-full rounded-2xl border border-bubble-border bg-bubble px-4 py-3.5 text-sm font-medium text-wine transition active:scale-[0.98]"
             >
@@ -207,7 +224,7 @@ export function ConsultFlow() {
             </button>
             <Link
               href="/"
-              className="w-full rounded-2xl bg-gradient-to-r from-wine-deep via-wine to-deep-purple px-4 py-3.5 text-center text-sm font-bold text-ivory shadow-[0_14px_32px_rgba(92,20,40,0.35)] transition active:scale-[0.98]"
+              className="w-full rounded-2xl border border-transparent px-4 py-2.5 text-center text-sm font-medium text-ink-soft/70 transition active:scale-[0.98]"
             >
               홈으로 돌아가기
             </Link>
