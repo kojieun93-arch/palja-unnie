@@ -39,9 +39,9 @@ export function CharacterHero() {
         aria-label="내 팔자 보러가기"
         className="absolute left-[18%] right-[18%] z-20 rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
         style={{
-          /* Painted CTA sits ~50–51.5% down the 1024×1536 art */
-          top: "49.2%",
-          height: "3.6%",
+          /* Final art CTA band ~50–51.5% down (1024×1536) */
+          top: "49.5%",
+          height: "3.2%",
         }}
       />
     </section>

@@ -24,7 +24,7 @@ const body = Noto_Sans_KR({
 });
 
 export const metadata: Metadata = {
-  title: "팔자언니 | 사주 × 웹툰 × AI × MBTI × 연애",
+  title: "팔자언니 | 사주 × MBTI × 연애",
   description: "야, 앉아봐라. 니 팔자 한번 봐줄게.",
   applicationName: "팔자언니",
 };
@@ -35,7 +35,11 @@ export const viewport: Viewport = {
   themeColor: "#8b1e3a",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html
       lang="ko"
