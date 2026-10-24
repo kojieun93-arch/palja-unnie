@@ -1,5 +1,5 @@
-import { FortuneWebtoon } from "@/components/fortune/FortuneWebtoon";
+import { FortuneStory } from "@/components/fortune/FortuneStory";
 
 export default function FortunePage() {
-  return <FortuneWebtoon />;
+  return <FortuneStory />;
 }
