@@ -70,7 +70,7 @@ export function FortuneStory() {
           className="mt-2 rounded-lg border border-dashed border-wine/30 bg-blush-soft/70 px-2.5 py-1.5 text-[10px] leading-relaxed text-wine-deep"
           role="note"
         >
-          고정된 <strong>가상 샘플</strong>이다. 생년월일로 실제 만세력·사주를 푼 결과가
+          몽환적인 <strong>고정 샘플 스토리</strong>다. 실제 개인 사주·만세력 분석 결과가
           아니다.
         </p>
       </header>
